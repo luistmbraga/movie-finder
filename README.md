@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The domain could be optimized and just one could be used because of similarity. But there are two domains for training and demonstration reasons.
 
-The styling was taken very serously since what matters here is technical training.
+The styling wasn't taken very serously since what matters here is technical training.
 
 ## Getting Started
 
