@@ -3,6 +3,12 @@ An application to search for movies made with React (NEXT) using Domain Driven D
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Important Info
+
+The domain could be optimized and just one could be used because of similarity. But there are two domains for training and demonstration reasons.
+
+The styling was taken very serously since what matters here is technical training.
+
 ## Getting Started
 
 First, run the development server:
