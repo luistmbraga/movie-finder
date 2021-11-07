@@ -1,5 +1,7 @@
 # movie-finder
-An application to search for movies made with React (NEXT) using Domain Driven Design (DDD)
+An application to search for movies made with React (NEXT) using Domain Driven Design (DDD).
+
+This application was made in an internship context at <a href="https://www.olxgroup.com">OLX Group</a> to learn about frontend development and DDD.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
