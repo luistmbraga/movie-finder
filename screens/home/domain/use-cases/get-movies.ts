@@ -1,4 +1,4 @@
-import MovieResult from "../../components/movie";
+import MovieResult from "../../components/search-result-list/movie-card";
 import { MovieSearchResult, Movies } from "../entities/movie-result";
 
 export const getMoviesByTitle = async (title: string) => {

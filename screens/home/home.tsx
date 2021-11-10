@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import styles from "../../styles/Home.module.css";
-import Footer from "../../components/footer";
-import Head from "../../components/head";
+import Footer from "../components/footer";
+import Head from "../components/head";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
-import FoundMovies from "./components/search-result/index";
+import FoundMovies from "./components/search-result-list/index";
 import React, { useState } from "react";
 import {
   getMoviesByTitle,

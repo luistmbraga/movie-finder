@@ -1,7 +1,7 @@
 import { MovieSearchResult } from "../../domain/entities/movie-result";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import MovieResult from "../movie/index";
+import MovieCard from "./movie-card";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const lightTheme = createTheme({ palette: { mode: "light" } });
@@ -15,6 +15,7 @@ function SearchResults({ movies }: { movies: Array<MovieSearchResult> }) {
       justifyContent="center"
       alignItems="center"
       direction="column"
+      data-testid="search-results"
     >
       <Grid item xs={4}>
         <ThemeProvider theme={lightTheme}>
@@ -23,12 +24,23 @@ function SearchResults({ movies }: { movies: Array<MovieSearchResult> }) {
               p: 2,
               bgcolor: "background.default",
               display: "grid",
-              gridTemplateColumns: { md: "1fr 1fr 1fr", xs: "1fr", sm: "1fr 1fr" },
+              gridTemplateColumns: {
+                md: "1fr 1fr 1fr",
+                xs: "1fr",
+                sm: "1fr 1fr",
+              },
               gap: 2,
             }}
           >
             {movies.map((item) => (
-              <MovieResult key={item.imdbid} movie={item} />
+              <MovieCard
+                key={item.imdbid}
+                title={item.title}
+                year={item.year}
+                poster={item.poster}
+                imdbid={item.imdbid}
+                type={item.type}
+              />
             ))}
           </Box>
         </ThemeProvider>

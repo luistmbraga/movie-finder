@@ -5,17 +5,19 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-function MovieResult({ movie }: { movie: MovieSearchResult }) {
+function MovieCard( {title, year, poster, imdbid} : MovieSearchResult) {
+
   return (
     <a
-      href={"http://localhost:3000/movie?id=" + movie.imdbid}
+      href={"http://localhost:3000/movie?id=" + imdbid}
       style={{ width: "500" }}
+      data-testid="movie-card"
     >
       <Card sx={{ display: "flex" }} elevation={6}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
-              {movie.title}
+              {title}
             </Typography>
           </CardContent>
           <Box
@@ -31,7 +33,7 @@ function MovieResult({ movie }: { movie: MovieSearchResult }) {
               color="text.secondary"
               component="div"
             >
-              {movie.year}
+              {year}
             </Typography>
           </Box>
         </Box>
@@ -39,7 +41,7 @@ function MovieResult({ movie }: { movie: MovieSearchResult }) {
         style={{flex: 1, flexDirection: "column", alignItems: 'flex-end'}}
           component="img"
           sx={{ width: 190 }}
-          image={movie.poster == "N/A" ? "/default-movie.jpeg" : movie.poster}
+          image={poster == "N/A" ? "/default-movie.jpeg" : poster}
           alt="poster"
         />
       </Card>
@@ -47,4 +49,4 @@ function MovieResult({ movie }: { movie: MovieSearchResult }) {
   );
 }
 
-export default MovieResult;
+export default MovieCard;

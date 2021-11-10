@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/footer";
-import Head from "../../components/head";
+import Footer from "../components/footer";
+import Head from "../components/head";
 import styles from "../../styles/Home.module.css";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
@@ -10,7 +10,6 @@ import MovieInfo from "./components/movie-info/index";
 import MovieActors from "./components/movie-actors/index";
 import Awards from "./components/awards/index";
 import OtherRatings from "./components/ratings/index";
-import { Ratings, Rating } from "./domain/entities/movie";
 
 function MovieScreen() {
   const [m, setMovie] = useState(null);
