@@ -6,7 +6,7 @@ function Footer() {
     <BaseFooter>
       <a
         target="_blank"
-        href="https://giphy.com/gifs/showtimesports-showtime-boxing-3o6nVbe6wVgh3LkRkA/fullscreen"
+        href="https://giphy.com/gifs/conor-mcgregor-floyd-mayweather-showmax-sUdILQgcIAe2I/fullscreen"
       >
         Powered by <FooterSpan>TMT OLX Group</FooterSpan>
       </a>
