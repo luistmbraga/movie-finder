@@ -13,7 +13,7 @@ function Pagination({
   page: number;
   handleChangePage: (value: number) => void;
 }) {
-  if (totalResults < 10) {
+  if (totalResults <= 10) {
     return <></>;
   }
 
@@ -90,9 +90,12 @@ function Pagination({
   }
 
   return (
-    <PaginationWrapper>
+    <PaginationWrapper data-testid="pagination">
       {page != 1 ? (
-        <PaginationItem onClick={() => handleChangePage(--page)}>
+        <PaginationItem
+          data-testid="pagination-step-backwards"
+          onClick={() => handleChangePage(page - 1)}
+        >
           &laquo;
         </PaginationItem>
       ) : (
@@ -100,7 +103,10 @@ function Pagination({
       )}
       {paginationItems}
       {page != count ? (
-        <PaginationItem onClick={() => handleChangePage(++page)}>
+        <PaginationItem
+          data-testid="pagination-step-forwards"
+          onClick={() => handleChangePage(page + 1)}
+        >
           &raquo;
         </PaginationItem>
       ) : (
