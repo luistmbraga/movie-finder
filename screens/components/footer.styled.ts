@@ -11,3 +11,9 @@ export const BaseFooter = styled.footer`
   justify-content: center;
   align-items: center;
 `;
+
+export const FooterSpan = styled.span`
+  height: 1em;
+  margin-left: 0.5rem;
+  font-weight: bold;
+`;

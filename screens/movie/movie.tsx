@@ -33,7 +33,7 @@ function MovieScreen() {
 
   return (
     <>
-      <Head title="Movie Finder" />
+      <Head title={"Movie Finder | " + m.title} />
 
       <BaseLayout>
         <TopBar />

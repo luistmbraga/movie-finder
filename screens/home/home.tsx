@@ -1,13 +1,13 @@
+import React, { useState } from "react";
 import Footer from "../components/footer";
 import Head from "../components/head";
 import FoundMovies from "./components/search-result-list/index";
-import React, { useState } from "react";
 import {
   getMoviesByTitle,
   getMoviesByPagination,
 } from "../home/domain/use-cases/get-movies";
 import { Movies } from "../home/domain/entities/movie-result";
-import Pages from "./components/pagination/index";
+import Pagination from "./components/pagination/index";
 import TopBar from "../components/topbar";
 import { BaseLayout } from "screens/components/base-layout.styled";
 import { ContentLayout } from "screens/components/content-layout.styled";
@@ -59,7 +59,7 @@ const HomeScreen = () => {
               ></InputSearch>
             </InputSearchWrapper>
             <FoundMovies movies={state.movielist} />
-            <Pages
+            <Pagination
               page={page}
               totalResults={state.totalresults}
               handleChangePage={handleChangePage}

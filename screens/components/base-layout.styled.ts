@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const BaseLayout = styled.div`
   display: grid;
-  gap: 8px;
+  gap: 0;
   grid-template-areas:
     "top"
     "content"
