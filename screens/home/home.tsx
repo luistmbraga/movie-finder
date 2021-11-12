@@ -1,10 +1,5 @@
-import type { NextPage } from "next";
-import styles from "../../styles/Home.module.css";
 import Footer from "../components/footer";
 import Head from "../components/head";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
 import FoundMovies from "./components/search-result-list/index";
 import React, { useState } from "react";
 import {
@@ -13,8 +8,12 @@ import {
 } from "../home/domain/use-cases/get-movies";
 import { Movies } from "../home/domain/entities/movie-result";
 import Pages from "./components/pagination/index";
+import TopBar from "../components/topbar";
+import { BaseLayout } from "screens/components/base-layout.styled";
+import { ContentLayout } from "screens/components/content-layout.styled";
+import { InputSearch, InputSearchWrapper, HomeWrapper } from "./home.styled";
 
-const HomeScreen: NextPage = () => {
+const HomeScreen = () => {
   const [inputValue, setInputValue] = useState("");
   const [state, setState] = useState<Movies>({
     movielist: [],
@@ -42,38 +41,35 @@ const HomeScreen: NextPage = () => {
   };
 
   return (
-    <div>
+    <>
       <Head title="Movie Finder | Home" />
 
-      <main className={styles.main}>
-        <img src="logo.png" alt="logo" />
+      <BaseLayout>
+        <TopBar />
 
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          placeholder="Search"
-          value={inputValue}
-          onChange={handleChangeSearchInput}
-          onKeyPress={(event) => handleSearch(event)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          className={styles.description}
-        />
-        <FoundMovies movies={state.movielist} />
-        <Pages
-          totalResults={state.totalresults}
-          page={page}
-          handleChangePage={handleChangePage}
-        />
-      </main>
+        <ContentLayout>
+          <HomeWrapper>
+            <InputSearchWrapper>
+              <InputSearch
+                type="text"
+                placeholder="Search Movie..."
+                value={inputValue}
+                onChange={handleChangeSearchInput}
+                onKeyPress={(event) => handleSearch(event)}
+              ></InputSearch>
+            </InputSearchWrapper>
+            <FoundMovies movies={state.movielist} />
+            <Pages
+              page={page}
+              totalResults={state.totalresults}
+              handleChangePage={handleChangePage}
+            />
+          </HomeWrapper>
+        </ContentLayout>
 
-      <Footer />
-    </div>
+        <Footer />
+      </BaseLayout>
+    </>
   );
 };
 

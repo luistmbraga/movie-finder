@@ -1,7 +1,11 @@
-import * as React from "react";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import React from "react";
 import { Ratings, Rating } from "../../domain/entities/movie";
+import {
+  RatingsHeader,
+  RatingsHeaderText,
+  RatingsList,
+  RatingsItem,
+} from "./index.styled";
 
 function OtherRatings({ ratings }: { ratings: Ratings }) {
   if (!ratings || ratings.length == 0) {
@@ -9,21 +13,20 @@ function OtherRatings({ ratings }: { ratings: Ratings }) {
   }
 
   return (
-    <Grid item container spacing={2} marginTop={10}>
-      <Grid item xs={4}>
-        <Typography variant="h2">Ratings</Typography>
-      </Grid>
-
-      <Grid item xs={8} sx={{ marginTop: "5%" }}>
+    <>
+      <RatingsHeader data-testid="ratings-header">
+        <RatingsHeaderText>Ratings</RatingsHeaderText>
+      </RatingsHeader>
+      <RatingsList>
         {ratings.map((item: Rating, index: number) => {
           return (
-            <Typography key={index} variant="h4" marginBottom={2}>
-              {item.source} {'  '} {item.value}
-            </Typography>
+            <RatingsItem key={index}>
+              {item.source} {"  "} {item.value}
+            </RatingsItem>
           );
         })}
-      </Grid>
-    </Grid>
+      </RatingsList>
+    </>
   );
 }
 

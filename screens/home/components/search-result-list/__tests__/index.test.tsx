@@ -18,7 +18,7 @@ const Component = (props?) => {
 };
 
 describe("<SearchResults/>", () => {
-  it("Should ...", () => {
+  it("Should show component.", () => {
     Component();
 
     expect(screen.getByTestId("search-results")).toBeInTheDocument();

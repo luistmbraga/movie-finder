@@ -1,22 +1,28 @@
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import {
+  ActorsHeader,
+  ActorsHeaderText,
+  ActorsList,
+  ActorsItem,
+} from "./index.styled";
 
 function MovieActors({ actors }: { actors: string }) {
+  if (!actors || actors == "" || actors == "N/A") {
+    return <></>;
+  }
 
-    if (!actors || actors == "" || actors == "N/A"){
-        return (<></>)
-    }
+  var actorslist = actors.split(",");
 
   return (
-    <Grid item container spacing={2} marginTop={10}>
-      <Grid item xs={4}>
-        <Typography variant="h2">Actors</Typography>
-      </Grid>
-
-      <Grid item xs={8} sx={{ marginTop: "5%" }}>
-        <Typography variant="h4">{actors.split(",").join(" |")}</Typography>
-      </Grid>
-    </Grid>
+    <>
+      <ActorsHeader data-testid="actors-header">
+        <ActorsHeaderText>Actors</ActorsHeaderText>
+      </ActorsHeader>
+      <ActorsList>
+        {actorslist.map((item, i) => (
+          <ActorsItem key={i}>{item}</ActorsItem>
+        ))}
+      </ActorsList>
+    </>
   );
 }
 

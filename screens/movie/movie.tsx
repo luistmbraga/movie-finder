@@ -1,15 +1,16 @@
-import { useRouter } from "next/dist/client/router";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/dist/client/router";
 import Footer from "../components/footer";
 import Head from "../components/head";
-import styles from "../../styles/Home.module.css";
-import Grid from "@mui/material/Grid";
-import { Container } from "@mui/material";
 import { getMovie } from "./domain/use-cases/get-movie";
 import MovieInfo from "./components/movie-info/index";
 import MovieActors from "./components/movie-actors/index";
 import Awards from "./components/awards/index";
 import OtherRatings from "./components/ratings/index";
+import { BaseLayout } from "screens/components/base-layout.styled";
+import { ContentLayout } from "screens/components/content-layout.styled";
+import TopBar from "../components/topbar";
+import { MovieWrapper } from "./movie.styled";
 
 function MovieScreen() {
   const [m, setMovie] = useState(null);
@@ -30,15 +31,14 @@ function MovieScreen() {
 
   if (m == null) return <div>Loading</div>;
 
-  console.log(m)
-
   return (
-    <div>
+    <>
       <Head title="Movie Finder" />
 
-      <main className={styles.main}>
-        <Container>
-          <Grid container>
+      <BaseLayout>
+        <TopBar />
+        <ContentLayout>
+          <MovieWrapper>
             <MovieInfo
               poster={m.poster}
               imdbrating={m.imdbrating}
@@ -50,16 +50,15 @@ function MovieScreen() {
               genre={m.genre}
               plot={m.plot}
             />
-            <OtherRatings ratings={m.ratings}/>
-            <Awards awards={m.awards}/>
-            <MovieActors actors={m.actors}/>
-          </Grid>
+            <OtherRatings ratings={m.ratings} />
+            <Awards awards={m.awards} />
+            <MovieActors actors={m.actors} />
+          </MovieWrapper>
+        </ContentLayout>
 
-        </Container>
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </BaseLayout>
+    </>
   );
 }
 

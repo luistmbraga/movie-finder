@@ -1,62 +1,62 @@
 export type Rating = {
-    source: string;
-    value: string;
-}
+  source: string;
+  value: string;
+};
 
-export type Ratings = Array<Rating>
+export type Ratings = Array<Rating>;
 
-export class Movie {  
-    title: string;
-    year: string;
-    rated: string;
-    released: string;
-    runtime: string;
-    genre: string;
-    director: string;
-    writer: string;
-    actors: string;
-    plot: string;
-    language: string;
-    country: string;
-    awards: string;
-    poster: string;
-    ratings: Ratings;
-    metascore: string;
-    imdbrating: string;
-    imdbvotes: string;
-    imdbid: string;
-    type: string;
-    dvd: string;
-    boxoffice: string;
-    production: string;
-    website: string;
+export class Movie {
+  title?: string;
+  year?: string;
+  rated?: string;
+  released?: string;
+  runtime?: string;
+  genre?: string;
+  director?: string;
+  writer?: string;
+  actors?: string;
+  plot?: string;
+  language?: string;
+  country?: string;
+  awards?: string;
+  poster?: string;
+  ratings?: Ratings;
+  metascore?: string;
+  imdbrating?: string;
+  imdbvotes?: string;
+  imdbid?: string;
+  type?: string;
+  dvd?: string;
+  boxoffice?: string;
+  production?: string;
+  website?: string;
 
-    constructor(data?: Partial<Movie>) {
-        this.title = data?.title ?? "";
-        this.year = data?.year ?? "";
-        this.rated = data?.rated ?? "";
-        this.released = data?.released ?? "";
-        this.runtime = data?.runtime ?? "";
-        this.genre = data?.genre ?? "";
-        this.director = data?.director ?? "";
-        this.writer = data?.writer ?? "";
-        this.actors = data?.actors ?? "";
-        this.plot = data?.plot ?? "";
-        this.language = data?.language ?? "";
-        this.country = data?.country ?? "";
-        this.awards = data?.awards ?? "";
-        this.poster = data?.poster ?? "";
-        this.ratings = data?.ratings ?? [];
-        this.metascore = data?.metascore ?? "";
-        this.imdbrating = data?.imdbrating ?? "";
-        this.imdbvotes = data?.imdbvotes ?? "";
-        this.imdbid = data?.imdbid ?? "";
-        this.type = data?.type ?? "";
-        this.dvd = data?.dvd ?? "";
-        this.boxoffice = data?.boxoffice ?? "";
-        this.production = data?.production ?? "";
-        this.website = data?.website ?? "";
-    }
+  constructor(data?: Partial<Movie>) {
+    this.title = data?.title ?? "";
+    this.year = data?.year ?? "";
+    this.rated = data?.rated ?? "";
+    this.released = data?.released ?? "";
+    this.runtime = data?.runtime ?? "";
+    this.genre = data?.genre ?? "";
+    this.director = data?.director ?? "";
+    this.writer = data?.writer ?? "";
+    this.actors = data?.actors ?? "";
+    this.plot = data?.plot ?? "";
+    this.language = data?.language ?? "";
+    this.country = data?.country ?? "";
+    this.awards = data?.awards ?? "";
+    this.poster = data?.poster ?? "";
+    this.ratings = data?.ratings ?? [];
+    this.metascore = data?.metascore ?? "";
+    this.imdbrating = data?.imdbrating ?? "";
+    this.imdbvotes = data?.imdbvotes ?? "";
+    this.imdbid = data?.imdbid ?? "";
+    this.type = data?.type ?? "";
+    this.dvd = data?.dvd ?? "";
+    this.boxoffice = data?.boxoffice ?? "";
+    this.production = data?.production ?? "";
+    this.website = data?.website ?? "";
+  }
 }
 
 /*
