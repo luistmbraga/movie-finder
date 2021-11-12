@@ -22,6 +22,7 @@ describe("<Pagination/>", () => {
   it("Should not show pagination component.", () => {
     Component({ ...defaultProps, totalResults: 10 });
 
+    expect(screen.queryByTestId("pagination")).not.toBeInTheDocument();
   });
 
   it("Should not show pagination backwards component.", () => {
