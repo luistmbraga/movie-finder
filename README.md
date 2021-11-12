@@ -11,6 +11,13 @@ The domain could be optimized and just one could be used because of similarity. 
 
 The styling wasn't taken very serously since what matters here is technical training.
 
+## Other Features
+
+<ul>
+  <li>Testing using jest and react-testing-library</li>
+  <li>CSS using emotion and no premade components</li>
+</ul>
+
 ## Getting Started
 
 First, run the development server:
