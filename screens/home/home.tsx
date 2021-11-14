@@ -30,6 +30,7 @@ const HomeScreen = () => {
   const handleSearch = async (event: React.KeyboardEvent) => {
     if (event.which === 13) {
       const res = await getMoviesByTitle(inputValue);
+      setPage(1);
       setState({ movielist: res.movielist, totalresults: res.totalresults });
     }
   };

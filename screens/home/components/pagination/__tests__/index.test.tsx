@@ -13,6 +13,10 @@ const Component = (props?) => {
 };
 
 describe("<Pagination/>", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("Should show pagination component.", () => {
     Component();
 
@@ -57,6 +61,7 @@ describe("<Pagination/>", () => {
     Component();
 
     fireEvent.click(screen.getByTestId("pagination-step-forwards"));
+    expect(defaultProps.handleChangePage).toBeCalledTimes(1);
     expect(defaultProps.handleChangePage).toHaveBeenCalledWith(2);
   });
 
@@ -64,6 +69,7 @@ describe("<Pagination/>", () => {
     Component({ ...defaultProps, page: 2 });
 
     fireEvent.click(screen.getByTestId("pagination-step-backwards"));
+    expect(defaultProps.handleChangePage).toBeCalledTimes(1);
     expect(defaultProps.handleChangePage).toHaveBeenCalledWith(1);
   });
 });

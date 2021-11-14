@@ -86,7 +86,15 @@ function Pagination({
   } else {
     paginationItems = Array(count)
       .fill(0)
-      .map((_, idx) => <PaginationItem key={idx}>{1 + idx}</PaginationItem>);
+      .map((_, idx) => (
+        <PaginationItem
+          onClick={() => handleChangePage(1 + idx)}
+          active={page == idx + 1}
+          key={idx}
+        >
+          {1 + idx}
+        </PaginationItem>
+      ));
   }
 
   return (
