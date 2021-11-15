@@ -1,8 +1,6 @@
 import React from "react";
 import { PaginationItem, Dots, PaginationWrapper } from "./index.styled";
-
-const MAX_ELEMS = 7;
-const RESUME_ITEMS_DISTANCE = 3;
+import { MAX_ELEMS, RESUME_ITEMS_DISTANCE } from "./constants";
 
 function Pagination({
   totalResults,
@@ -32,7 +30,7 @@ function Pagination({
     let trdelem = inTheMiddle ? page + 1 : awayFromLeft ? count - 2 : 5;
 
     const leftitem = awayFromLeft ? (
-      <Dots>...</Dots>
+      <Dots data-testid="left-dots">...</Dots>
     ) : (
       <PaginationItem onClick={() => handleChangePage(2)} active={page == 2}>
         2
@@ -40,7 +38,7 @@ function Pagination({
     );
 
     const rightitem = awayFromRight ? (
-      <Dots>...</Dots>
+      <Dots data-testid="right-dots">...</Dots>
     ) : (
       <PaginationItem
         onClick={() => handleChangePage(count - 1)}
@@ -52,7 +50,11 @@ function Pagination({
 
     paginationItems = (
       <>
-        <PaginationItem onClick={() => handleChangePage(1)} active={page == 1}>
+        <PaginationItem
+          onClick={() => handleChangePage(1)}
+          active={page == 1}
+          data-testid="bigger-pagination"
+        >
           1
         </PaginationItem>
         {leftitem}
@@ -91,6 +93,7 @@ function Pagination({
           onClick={() => handleChangePage(1 + idx)}
           active={page == idx + 1}
           key={idx}
+          data-testid={`smaller-pagination-${idx + 1}`}
         >
           {1 + idx}
         </PaginationItem>

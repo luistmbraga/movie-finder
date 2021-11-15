@@ -72,4 +72,39 @@ describe("<Pagination/>", () => {
     expect(defaultProps.handleChangePage).toBeCalledTimes(1);
     expect(defaultProps.handleChangePage).toHaveBeenCalledWith(1);
   });
+
+  it("Should return the page number when page is clicked", () => {
+    Component();
+
+    fireEvent.click(screen.getByTestId("smaller-pagination-2"));
+    expect(defaultProps.handleChangePage).toBeCalledTimes(1);
+    expect(defaultProps.handleChangePage).toHaveBeenCalledWith(2);
+  });
+
+  it("Should show smaller pagination component", () => {
+    Component();
+
+    expect(screen.getByTestId("smaller-pagination-1")).toBeInTheDocument();
+  });
+
+  it("Should show dots on the right", () => {
+    Component({ ...defaultProps, totalResults: 100 });
+
+    expect(screen.queryByTestId("left-dots")).not.toBeInTheDocument();
+    expect(screen.getByTestId("right-dots")).toBeInTheDocument();
+  });
+
+  it("Should show dots on the left and on the right", () => {
+    Component({ ...defaultProps, totalResults: 100, page: 5 });
+
+    expect(screen.getByTestId("left-dots")).toBeInTheDocument();
+    expect(screen.getByTestId("right-dots")).toBeInTheDocument();
+  });
+
+  it("Should only show dots on the left", () => {
+    Component({ ...defaultProps, totalResults: 100, page: 9 });
+
+    expect(screen.getByTestId("left-dots")).toBeInTheDocument();
+    expect(screen.queryByTestId("right-dots")).not.toBeInTheDocument();
+  });
 });
