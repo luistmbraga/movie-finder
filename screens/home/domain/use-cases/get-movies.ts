@@ -1,9 +1,9 @@
-import MovieResult from "../../components/search-result-list/movie-card";
 import { MovieSearchResult, Movies } from "../entities/movie-result";
+import { BASE_IMDB_MOVIES_URL, IMDB_MOVIES_APKEY } from "screens/constants";
 
 export const getMoviesByTitle = async (title: string) => {
   const res = await fetch(
-    `http://www.omdbapi.com/?apikey=d3757c7&page=1&type=movie&s=` + title
+    `${BASE_IMDB_MOVIES_URL}${IMDB_MOVIES_APKEY}&page=1&type=movie&s=${title}`
   );
   const data = await res.json();
 
@@ -26,7 +26,7 @@ export const getMoviesByTitle = async (title: string) => {
 
 export const getMoviesByPagination = async (page: number, title: string) => {
   const res = await fetch(
-    `http://www.omdbapi.com/?apikey=d3757c7&page=${page}&type=movie&s=` + title
+    `${BASE_IMDB_MOVIES_URL}${IMDB_MOVIES_APKEY}&page=${page}&type=movie&s=${title}`
   );
   const data = await res.json();
 

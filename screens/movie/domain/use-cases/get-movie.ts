@@ -1,8 +1,9 @@
-import { Movie, Ratings, Rating } from "../entities/movie";
+import { Movie } from "../entities/movie";
+import { BASE_IMDB_MOVIES_URL, IMDB_MOVIES_APKEY } from "screens/constants";
 
 export const getMovie = async (id) => {
   const res = await fetch(
-    `http://www.omdbapi.com/?i=${id}&apikey=d3757c7&plot=full`
+    `${BASE_IMDB_MOVIES_URL}${IMDB_MOVIES_APKEY}&i=${id}&&plot=full`
   );
   const data = await res.json();
 
